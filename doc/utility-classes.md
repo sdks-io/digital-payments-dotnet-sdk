@@ -26,3 +26,14 @@ HttpRequest stores necessary information about the http request.
 | `JsonSerialize(object obj, JsonConverter converter = null)` | JSON Serialization of a given object. | `string` |
 | `JsonDeserialize<T>(string json, JsonConverter converter = null)` | JSON Deserialization of the given json string. | `T` |
 
+## HttpCallback Class
+
+Class to provide callbacks for the Http request and response of an API call.
+
+### Methods
+
+| Name | Description | Return Type |
+|  --- | --- | --- |
+| `OnBeforeRequest(HttpRequest request)` | Override to provide callback for the Http request. | `void` |
+| `OnAfterResponse(HttpResponse response)` | Override to provide callback for the Http response. | `void` |
+

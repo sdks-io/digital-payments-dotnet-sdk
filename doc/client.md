@@ -5,14 +5,15 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
+| `Environment` | `Environment` | The API environment. <br> **Default: `Environment.Test`** |
 | `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
-| `MppTokenCredentials` | [`MppTokenCredentials`]($a/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
-| `OAuthTokenPostCredentials` | [`OAuthTokenPostCredentials`]($a/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
+| `MppTokenCredentials` | [`MppTokenCredentials`](auth/custom-header-signature.md) | The Credentials Setter for Custom Header Signature |
+| `OAuthTokenPostCredentials` | [`OAuthTokenPostCredentials`](auth/custom-header-signature-1.md) | The Credentials Setter for Custom Header Signature |
 
 The API client can be initialized as follows:
 
 ```csharp
-ShellEV.Standard.ShellEVClient client = new ShellEV.Standard.ShellEVClient.Builder()
+ShellSmartPayAPIClient client = new ShellSmartPayAPIClient.Builder()
     .MppTokenCredentials(
         new MppTokenModel.Builder(
             "Authorization"
@@ -23,10 +24,11 @@ ShellEV.Standard.ShellEVClient client = new ShellEV.Standard.ShellEVClient.Build
             "X-Apigee-Authorization"
         )
         .Build())
+    .Environment(ShellSmartPayAPI.Standard.Environment.Test)
     .Build();
 ```
 
-## Shell EVClient Class
+## Shell SmartPay APIClient Class
 
 The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
 
@@ -47,19 +49,19 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | HttpClientConfiguration | Gets the configuration of the Http Client associated with this client. | [`IHttpClientConfiguration`](http-client-configuration.md) |
 | Timeout | Http client timeout. | `TimeSpan` |
 | Environment | Current API environment. | `Environment` |
-| MppTokenCredentials | Gets the credentials to use with MppToken. | [`IMppTokenCredentials`]($a/custom-header-signature.md) |
-| OAuthTokenPostCredentials | Gets the credentials to use with OAuthTokenPost. | [`IOAuthTokenPostCredentials`]($a/custom-header-signature-1.md) |
+| MppTokenCredentials | Gets the credentials to use with MppToken. | [`IMppTokenCredentials`](auth/custom-header-signature.md) |
+| OAuthTokenPostCredentials | Gets the credentials to use with OAuthTokenPost. | [`IOAuthTokenPostCredentials`](auth/custom-header-signature-1.md) |
 
 ### Methods
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
-| `GetBaseUri(Server alias = Server.Default)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
-| `ToBuilder()` | Creates an object of the Shell EVClient using the values provided for the builder. | `Builder` |
+| `GetBaseUri(Server alias = Server.Shell)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
+| `ToBuilder()` | Creates an object of the Shell SmartPay APIClient using the values provided for the builder. | `Builder` |
 
-## Shell EVClient Builder Class
+## Shell SmartPay APIClient Builder Class
 
-Class to build instances of Shell EVClient.
+Class to build instances of Shell SmartPay APIClient.
 
 ### Methods
 

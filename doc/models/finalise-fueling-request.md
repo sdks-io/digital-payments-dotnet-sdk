@@ -19,8 +19,8 @@
 | `SiteAddress` | `string` | Optional | - |
 | `OriginalPrice` | `double?` | Optional | - |
 | `Discount` | `double?` | Optional | - |
-| `Payment` | [`FinaliseFuelingRequestPayment`](../../doc/models/finalise-fueling-request-payment.md) | Optional | - |
-| `Products` | [`List<FinaliseFuelingRequestProductsItems>`](../../doc/models/finalise-fueling-request-products-items.md) | Optional | - |
+| `Payment` | [`Payment`](../../doc/models/payment.md) | Optional | - |
+| `Products` | [`List<Product>`](../../doc/models/product.md) | Optional | - |
 | `MppTransactionId` | `string` | Optional | - |
 
 ## Example (as JSON)

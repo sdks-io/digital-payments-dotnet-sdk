@@ -9,7 +9,7 @@ Documentation for accessing and setting credentials for MppToken.
 
 | Name | Type | Description | Setter | Getter |
 |  --- | --- | --- | --- | --- |
-| Authorization | `string` | Digital Payments access token ([How to obtain Digital Payments access token?](page:guided-walkthrough/walkthrough1)) | `Authorization` | `Authorization` |
+| Authorization | `string` | Access token to be passed for Mobile Payment Platform Authentication ([How to obtain Digital Payments access token?](page:guided-walkthrough/walkthrough1)) | `Authorization` | `Authorization` |
 
 
 
@@ -22,7 +22,7 @@ Documentation for accessing and setting credentials for MppToken.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```csharp
-ShellEV.Standard.ShellEVClient client = new ShellEV.Standard.ShellEVClient.Builder()
+ShellSmartPayAPIClient client = new ShellSmartPayAPIClient.Builder()
     .MppTokenCredentials(
         new MppTokenModel.Builder(
             "Authorization"

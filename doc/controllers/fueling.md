@@ -102,18 +102,15 @@ PrepareFuelingRequest body = new PrepareFuelingRequest
     StationId = "9955",
     PumpId = "1",
     SourceApplication = "PARTNER_APP_EXAMPLE",
-    PaymentDetails = new List<Models.PaymentDetailsItems>
+    PaymentDetails = new PaymentDetails
     {
-        new PaymentDetailsItems
+        PaymentMethodId = "euroShell",
+        PaymentProperties = new PaymentProperties
         {
-            PaymentMethodId = "euroShell",
-            PaymentProperties = new PaymentProperties
-            {
-                CardIdentifier = "98e4ffd3-4146-4e94-8445-e02f4ce87a77",
-            },
+            CardIdentifier = "98e4ffd3-4146-4e94-8445-e02f4ce87a77",
         },
     },
-    LoyaltyDetails = new List<Models.LoyaltyDetails>
+    LoyaltyDetails = new List<LoyaltyDetails>
     {
         new LoyaltyDetails
         {

@@ -40,7 +40,7 @@ MobilePaymentRegistrationRequest body = new MobilePaymentRegistrationRequest
     AccountId = "8682",
     PayerId = "8682",
     ColCoId = "32",
-    CollectingCompanies = new List<Models.CollectingCompany>
+    CollectingCompanies = new List<CollectingCompany>
     {
         new CollectingCompany
         {
