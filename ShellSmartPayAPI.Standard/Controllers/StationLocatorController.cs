@@ -44,6 +44,7 @@ namespace ShellSmartPayAPI.Standard.Controllers
         /// <param name="n">Optional parameter: This enables requestor to limit the number of locations that are returned and defaulted to a maximum of 250 locations. Locations returned based on distance to User’s location as-the-crow-flies..</param>
         /// <param name="amenities">Optional parameter: This enables requestor to filter locations based on one or more amenities (e.g. Filter locations so that only those with a Toilet are returned)..</param>
         /// <param name="countries">Optional parameter: This enables requestor to filter locations based on one or more Countries (i.e. by country codes)..</param>
+        /// <param name="type">Optional parameter: All fuel stations are of at least one Type, indicating whether it is Shell-branded or not, and if the station can be used by trucks. Note that a station can have more than one Type (e.g. Shell retail sites (Type=0) can also be truck friendly (Type=2)).   Type values are as follows:    * 0 = Shell owned/branded stations that are not also Type=2 or Type=3   * 1 = Partner stations accepting Shell Card   * 2 = Shell owned/branded stations that are truck friendly but not Type=3   * 3 = Shell owned/branded stations that are truck only   <br/>**When type is not provided, API will return type 0 and 2 only.**.</param>
         /// <returns>Returns the Models.AroundLocationArray response from the API call.</returns>
         public Models.AroundLocationArray StationlocatorV1StationsGetAroundLocation(
                 string m,
@@ -53,8 +54,9 @@ namespace ShellSmartPayAPI.Standard.Controllers
                 string offerCode = null,
                 int? n = null,
                 List<string> amenities = null,
-                List<string> countries = null)
-            => CoreHelper.RunTask(StationlocatorV1StationsGetAroundLocationAsync(m, lon, lat, radius, offerCode, n, amenities, countries));
+                List<string> countries = null,
+                Models.TypeEnum? type = null)
+            => CoreHelper.RunTask(StationlocatorV1StationsGetAroundLocationAsync(m, lon, lat, radius, offerCode, n, amenities, countries, type));
 
         /// <summary>
         /// Returns all sites within specified radius of specified GPS location. Sites of all Types are returned. This call must be used when attempting to establish the station the user is located at as part of fuelling journey (i.e. user has to be within 300m of station to be considered located at the station). This API could also be used as a general query to find nearby Shell locations.
@@ -67,6 +69,7 @@ namespace ShellSmartPayAPI.Standard.Controllers
         /// <param name="n">Optional parameter: This enables requestor to limit the number of locations that are returned and defaulted to a maximum of 250 locations. Locations returned based on distance to User’s location as-the-crow-flies..</param>
         /// <param name="amenities">Optional parameter: This enables requestor to filter locations based on one or more amenities (e.g. Filter locations so that only those with a Toilet are returned)..</param>
         /// <param name="countries">Optional parameter: This enables requestor to filter locations based on one or more Countries (i.e. by country codes)..</param>
+        /// <param name="type">Optional parameter: All fuel stations are of at least one Type, indicating whether it is Shell-branded or not, and if the station can be used by trucks. Note that a station can have more than one Type (e.g. Shell retail sites (Type=0) can also be truck friendly (Type=2)).   Type values are as follows:    * 0 = Shell owned/branded stations that are not also Type=2 or Type=3   * 1 = Partner stations accepting Shell Card   * 2 = Shell owned/branded stations that are truck friendly but not Type=3   * 3 = Shell owned/branded stations that are truck only   <br/>**When type is not provided, API will return type 0 and 2 only.**.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the Models.AroundLocationArray response from the API call.</returns>
         public async Task<Models.AroundLocationArray> StationlocatorV1StationsGetAroundLocationAsync(
@@ -78,6 +81,7 @@ namespace ShellSmartPayAPI.Standard.Controllers
                 int? n = null,
                 List<string> amenities = null,
                 List<string> countries = null,
+                Models.TypeEnum? type = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.AroundLocationArray>()
               .RequestBuilder(_requestBuilder => _requestBuilder
@@ -91,7 +95,8 @@ namespace ShellSmartPayAPI.Standard.Controllers
                       .Query(_query => _query.Setup("offer_code", offerCode))
                       .Query(_query => _query.Setup("n", n))
                       .Query(_query => _query.Setup("amenities", amenities))
-                      .Query(_query => _query.Setup("countries", countries))))
+                      .Query(_query => _query.Setup("countries", countries))
+                      .Query(_query => _query.Setup("type", (type.HasValue) ? (int?)type.Value : null))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("Bad request", (_reason, _context) => new StationLocatorBadRequestException(_reason, _context)))
                   .ErrorCase("401", CreateErrorCase("Unauthorized", (_reason, _context) => new StationLocatorUnauthorizedException(_reason, _context)))

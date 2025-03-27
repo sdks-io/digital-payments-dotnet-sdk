@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellSmartPayAPI.Standard", "ShellSmartPayAPI.Standard/ShellSmartPayAPI.Standard.csproj", "{72d5fb39-91c8-4a42-bcae-354834c0038a}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellSmartPayAPI.Standard", "ShellSmartPayAPI.Standard/ShellSmartPayAPI.Standard.csproj", "{1a9433a1-aeeb-41e6-9d55-1783a126ea01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellSmartPayAPI.Tests", "ShellSmartPayAPI.Tests/ShellSmartPayAPI.Tests.csproj", "{6e01b797-3cf7-4405-bbaa-d66f76e13147}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellSmartPayAPI.Tests", "ShellSmartPayAPI.Tests/ShellSmartPayAPI.Tests.csproj", "{096b404c-7b54-4145-85ff-a048f1d6b6b9}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,14 +12,14 @@ Global
         Release|Any CPU = Release|Any CPU
     EndGlobalSection
     GlobalSection(ProjectConfigurationPlatforms) = postSolution
-        {72d5fb39-91c8-4a42-bcae-354834c0038a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {72d5fb39-91c8-4a42-bcae-354834c0038a}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {72d5fb39-91c8-4a42-bcae-354834c0038a}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {72d5fb39-91c8-4a42-bcae-354834c0038a}.Release|Any CPU.Build.0 = Release|Any CPU
-        {6e01b797-3cf7-4405-bbaa-d66f76e13147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {6e01b797-3cf7-4405-bbaa-d66f76e13147}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {6e01b797-3cf7-4405-bbaa-d66f76e13147}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {6e01b797-3cf7-4405-bbaa-d66f76e13147}.Release|Any CPU.Build.0 = Release|Any CPU
+        {1a9433a1-aeeb-41e6-9d55-1783a126ea01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {1a9433a1-aeeb-41e6-9d55-1783a126ea01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {1a9433a1-aeeb-41e6-9d55-1783a126ea01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {1a9433a1-aeeb-41e6-9d55-1783a126ea01}.Release|Any CPU.Build.0 = Release|Any CPU
+        {096b404c-7b54-4145-85ff-a048f1d6b6b9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {096b404c-7b54-4145-85ff-a048f1d6b6b9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {096b404c-7b54-4145-85ff-a048f1d6b6b9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {096b404c-7b54-4145-85ff-a048f1d6b6b9}.Release|Any CPU.Build.0 = Release|Any CPU
     EndGlobalSection
     GlobalSection(SolutionProperties) = preSolution
         HideSolutionNode = FALSE

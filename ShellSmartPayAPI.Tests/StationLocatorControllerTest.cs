@@ -54,12 +54,13 @@ namespace ShellSmartPayAPI.Tests
             int? n = null;
             List<string> amenities = null;
             List<string> countries = null;
+            Standard.Models.TypeEnum? type = null;
 
             // Perform API call
             Standard.Models.AroundLocationArray result = null;
             try
             {
-                result = await this.controller.StationlocatorV1StationsGetAroundLocationAsync(m, lon, lat, radius, offerCode, n, amenities, countries);
+                result = await this.controller.StationlocatorV1StationsGetAroundLocationAsync(m, lon, lat, radius, offerCode, n, amenities, countries, type);
             }
             catch (ApiException)
             {
